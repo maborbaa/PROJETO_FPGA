@@ -1,0 +1,21 @@
+# ninja log v6
+1	14	1764616735071403812	picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-mkdir	18d1b5152a78b85f
+1	14	1764616735071403812	/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-subbuild/picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-mkdir	18d1b5152a78b85f
+14	1044	1764616736101347923	picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-download	9f752155888bdded
+14	1044	1764616736101347923	/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-subbuild/picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-download	9f752155888bdded
+1044	1677	1764616736102347869	picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-update	ea34da13d4260a98
+1044	1677	1764616736102347869	/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-subbuild/picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-update	ea34da13d4260a98
+1677	1689	1764616736746313010	picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-patch	a505cd3855a9884
+1677	1689	1764616736746313010	/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-subbuild/picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-patch	a505cd3855a9884
+1689	1701	1764616736758312361	picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-configure	bdfa8d4ce4d09834
+1689	1701	1764616736758312361	/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-subbuild/picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-configure	bdfa8d4ce4d09834
+1701	1713	1764616736771311657	picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-build	7a82d981c4836537
+1701	1713	1764616736771311657	/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-subbuild/picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-build	7a82d981c4836537
+1713	1726	1764616736783311007	picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-install	61742e1a8b2caa3a
+1713	1726	1764616736783311007	/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-subbuild/picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-install	61742e1a8b2caa3a
+1726	1739	1764616736796310304	picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-test	6b21ed87d65350ad
+1726	1739	1764616736796310304	/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-subbuild/picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-test	6b21ed87d65350ad
+1739	1758	1764616736815309275	CMakeFiles/picotool-populate-complete	badf7242fc16dcd9
+1739	1758	1764616736815309275	picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-done	badf7242fc16dcd9
+1739	1758	1764616736815309275	/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-subbuild/CMakeFiles/picotool-populate-complete	badf7242fc16dcd9
+1739	1758	1764616736815309275	/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-subbuild/picotool-populate-prefix/src/picotool-populate-stamp/picotool-populate-done	badf7242fc16dcd9

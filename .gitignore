@@ -1,9 +1,72 @@
+# ========================
+# 1. GERAL DO SISTEMA
+# ========================
+.DS_Store
+Thumbs.db
+*~
+*.swp
+
+# ========================
+# 2. VS CODE
+# ========================
 .vscode/
-build/
+*.code-workspace
+
+# ========================
+# 3. SOFTWARE RP2040 (C/C++ & FreeRTOS)
+# ========================
+# Ignorar a pasta de compilação inteira (onde ficam os temporários)
+01.RP2040/build/
+01.RP2040/generated/
+
+# Binários finais (só queremos o código fonte no Git)
 *.uf2
 *.elf
 *.bin
 *.hex
+*.map
+*.dis
 *.o
 *.d
-*.map
+
+# ========================
+# 4. HARDWARE FPGA (Lattice ECP5)
+# ========================
+# O Diamond/Radiant cria muitas pastas de lixo
+02.FPGA/impl*/
+02.FPGA/_scratch/
+02.FPGA/.recovery/
+02.FPGA/prom_gen/
+
+# Arquivos intermediários de síntese (Lixo)
+*.sty
+*.jed
+*.lso
+*.twr
+*.rom
+*.ngd
+*.ncd
+*.svf
+*.mrp
+*.par
+*.pad
+*.pt
+*.lsedata
+*.his
+*.bit 
+# Nota: Ignoramos *.bit para não versionar binários. 
+# Se quiser salvar uma versão final, force com "git add -f arquivo.bit"
+
+# Arquivos de Simulação (GTKWave / Icarus)
+*.vcd
+*.gtkw
+*.out
+*.vvp
+
+# ========================
+# 5. FERRAMENTAS PC (Python)
+# ========================
+__pycache__/
+*.pyc
+venv/
+env/

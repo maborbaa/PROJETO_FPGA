@@ -1,0 +1,13 @@
+# Target labels
+ enc_bootloader
+# Source files and their labels
+/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-build/CMakeFiles/enc_bootloader
+/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-build/CMakeFiles/enc_bootloader.rule
+/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-build/CMakeFiles/enc_bootloader-complete.rule
+/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-build/enc_bootloader/src/enc_bootloader-stamp/enc_bootloader-build.rule
+/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-build/enc_bootloader/src/enc_bootloader-stamp/enc_bootloader-configure.rule
+/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-build/enc_bootloader/src/enc_bootloader-stamp/enc_bootloader-download.rule
+/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-build/enc_bootloader/src/enc_bootloader-stamp/enc_bootloader-install.rule
+/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-build/enc_bootloader/src/enc_bootloader-stamp/enc_bootloader-mkdir.rule
+/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-build/enc_bootloader/src/enc_bootloader-stamp/enc_bootloader-patch.rule
+/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-build/enc_bootloader/src/enc_bootloader-stamp/enc_bootloader-update.rule
