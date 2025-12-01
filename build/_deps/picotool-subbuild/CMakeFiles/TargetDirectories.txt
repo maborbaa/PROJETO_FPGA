@@ -1,3 +1,0 @@
-/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-subbuild/CMakeFiles/picotool-populate.dir
-/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-subbuild/CMakeFiles/edit_cache.dir
-/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool-subbuild/CMakeFiles/rebuild_cache.dir
