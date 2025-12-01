@@ -1,0 +1,7 @@
+/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool/picotool
+/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool/picotoolTargets.cmake
+/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool/picotoolTargets-release.cmake
+/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool/picotoolConfig.cmake
+/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool/picotoolConfigVersion.cmake
+/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool/enc_bootloader.elf
+/home/tech03/Documentos/2025/EMBARCATECH/RESIDENCIA/MATERIAL_AULA/U7-projeto/PROJETO_FPGA/build/_deps/picotool/enc_bootloader_mbedtls.elf
