@@ -1,0 +1,10 @@
+# Arquivo: pins.lpf
+# Mapeamento para Colorlight i9 (Lattice ECP5)
+
+# Clock de 25MHz (Pino P3 na Colorlight i9)
+LOCATE COMP "clk" SITE "P3";
+IOBUF PORT "clk" IO_TYPE=LVCMOS33;
+
+# LED (Vamos usar um pino qualquer valido, ex: L16)
+LOCATE COMP "led" SITE "L16";
+IOBUF PORT "led" IO_TYPE=LVCMOS33;
