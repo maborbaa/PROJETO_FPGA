@@ -1,0 +1,79 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.5 Chrome/138.0.7204.251 Electron/37.6.1 Safari/537.36" version="28.2.5">
+  <diagram name="Página-1" id="N7UI5e7fNob6204EXsP2">
+    <mxGraphModel dx="2037" dy="1250" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="hk71LhGsiW526bF7gKUa-1" value="Fluxo de Hardware: Synthesis &amp; Implementation" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="308" y="706" width="330" height="253" as="geometry" />
+        </mxCell>
+        <mxCell id="hk71LhGsiW526bF7gKUa-2" value="Fluxo de Software: Cross-Compilation" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="20" y="20" width="618" height="597" as="geometry" />
+        </mxCell>
+        <mxCell id="hk71LhGsiW526bF7gKUa-3" value="Source Code &#39;main.c&#39;" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="219" y="45" width="211" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="hk71LhGsiW526bF7gKUa-4" value="Linked Executable &#39;firmware.elf&#39;" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="195" y="188" width="260" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="hk71LhGsiW526bF7gKUa-5" value="Arquivo Mestre com Metadados" style="rounded=1;arcSize=20;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="63" y="372" width="230" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="hk71LhGsiW526bF7gKUa-6" value="Memory Image &#39;firmware.hex&#39;" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="343" y="372" width="260" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="hk71LhGsiW526bF7gKUa-7" value="Imagem de Inicialização" style="rounded=1;arcSize=20;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="372" y="538" width="202" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="hk71LhGsiW526bF7gKUa-8" value="SystemVerilog Top Module &#39;top.sv&#39;" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="343" y="731" width="260" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="hk71LhGsiW526bF7gKUa-9" value="FPGA Bitstream &#39;.bit&#39;" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="369" y="880" width="207" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="hk71LhGsiW526bF7gKUa-10" value="Hardware Físico: FPGA + RISC-V" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="343" y="1030" width="260" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="hk71LhGsiW526bF7gKUa-11" value="GCC Compiler + Linker Script" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=-0.01;rounded=0;" edge="1" parent="1" source="hk71LhGsiW526bF7gKUa-3" target="hk71LhGsiW526bF7gKUa-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hk71LhGsiW526bF7gKUa-12" value="Contém: Código de Máquina + Símbolos + Debug Info" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=0.26;exitY=0.99;entryX=0.5;entryY=0;rounded=0;" edge="1" parent="1" source="hk71LhGsiW526bF7gKUa-4" target="hk71LhGsiW526bF7gKUa-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="178" y="319" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hk71LhGsiW526bF7gKUa-13" value="GNU Objcopy (Binary Extraction &amp; Stripping)" style="curved=1;startArrow=none;endArrow=block;exitX=0.74;exitY=0.99;entryX=0.5;entryY=0;rounded=0;" edge="1" parent="1" source="hk71LhGsiW526bF7gKUa-4" target="hk71LhGsiW526bF7gKUa-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="473" y="319" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hk71LhGsiW526bF7gKUa-14" value="Contém: Raw Binary / Dados Puros" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0.01;rounded=0;" edge="1" parent="1" source="hk71LhGsiW526bF7gKUa-6" target="hk71LhGsiW526bF7gKUa-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hk71LhGsiW526bF7gKUa-15" value="Diretiva $readmemh na Síntese" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1.01;entryX=0.5;entryY=0;rounded=0;" edge="1" parent="1" source="hk71LhGsiW526bF7gKUa-7" target="hk71LhGsiW526bF7gKUa-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hk71LhGsiW526bF7gKUa-16" value="Yosys + Nextpnr" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" edge="1" parent="1" source="hk71LhGsiW526bF7gKUa-8" target="hk71LhGsiW526bF7gKUa-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hk71LhGsiW526bF7gKUa-17" value="Programação via USB" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" edge="1" parent="1" source="hk71LhGsiW526bF7gKUa-9" target="hk71LhGsiW526bF7gKUa-10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
