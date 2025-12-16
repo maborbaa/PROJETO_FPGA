@@ -61,6 +61,11 @@ picorv32 #(
 logic [31:0] memoria [0:255]; 
 logic [31:0] ram_rdata; // Variavel temporaria para RAM
 
+//Carregar o firmware.hex
+initial begin
+    $readmemh("firmware.hex", memoria);
+end
+
 logic [15:0] addr_prefixo;
 assign addr_prefixo = mem_addr_in[31:16];
 
