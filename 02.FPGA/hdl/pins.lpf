@@ -1,10 +1,20 @@
 # Arquivo: pins.lpf
 # Mapeamento para Colorlight i9 (Lattice ECP5)
 
-# Clock de 25MHz (Pino P3 na Colorlight i9)
-LOCATE COMP "clk" SITE "P3";
-IOBUF PORT "clk" IO_TYPE=LVCMOS33;
+# 1. Clock Principal (25MHz)
+# Na Colorlight i9, o oscilador de 25MHz está sempre no pino P3
+LOCATE COMP "clk_in" SITE "P3";
+IOBUF PORT "clk_in" IO_TYPE=LVCMOS33;
 
-# LED (Vamos usar um pino qualquer valido, ex: L16)
-LOCATE COMP "led" SITE "L16";
-IOBUF PORT "led" IO_TYPE=LVCMOS33;
+# 2. Reset (Botão ou Pull-up)
+# Vamos usar um pino que geralmente tem botão ou deixamos flutuando com Pull-up interno
+# K18 é comum nessas placas, mas se não tiver botão, o PULLMODE=UP segura o reset solto
+LOCATE COMP "rst_in" SITE "K18";
+IOBUF PORT "rst_in" IO_TYPE=LVCMOS33 PULLMODE=UP;
+
+# 3. LED de Teste (Led Vermelho da Placa)
+# O LED da Colorlight i9 fica no pino L16 e acende com nível BAIXO (invertido)
+LOCATE COMP "led[0]" SITE "L16";
+IOBUF PORT "led[0]" IO_TYPE=LVCMOS33;
+
+# (Os outros LEDs do vetor [7:1] não precisamos mapear agora, o Nextpnr vai ignorar)
