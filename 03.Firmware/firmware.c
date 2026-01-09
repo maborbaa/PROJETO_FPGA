@@ -15,7 +15,7 @@
 /* --- FUNÇÕES AUXILIARES --- */
 
 /* Função de delay simples (Gastando ciclos de CPU) */
-/* Como não temos Timer Hardware ainda, usamos loop forçado */
+/* Como não temos Timer Hardware, loop forçado */
 void delay(uint32_t count) {
     while (count > 0) {
         /* 'volatile' aqui impede o compilador de remover este loop vazio */
