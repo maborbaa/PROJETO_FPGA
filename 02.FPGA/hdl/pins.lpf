@@ -7,7 +7,7 @@ LOCATE COMP "clk_in" SITE "P3";
 IOBUF PORT "clk_in" IO_TYPE=LVCMOS33;
 
 # 2. Reset (Botão ou Pull-up)
-# Vamos usar um pino que geralmente tem botão ou deixamos flutuando com Pull-up interno
+# Usar um pino que geralmente tem botão ou deixamos flutuando com Pull-up interno
 # K18 é comum nessas placas, mas se não tiver botão, o PULLMODE=UP segura o reset solto
 LOCATE COMP "rst_in" SITE "K18";
 IOBUF PORT "rst_in" IO_TYPE=LVCMOS33 PULLMODE=UP;
