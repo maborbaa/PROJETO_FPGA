@@ -19,7 +19,7 @@ include(${FREERTOS_KERNEL_PATH}/portable/ThirdParty/GCC/RP2040/FreeRTOS_Kernel_i
 # Aqui estava o erro! Vamos usar o caminho absoluto do arquivo .c
 add_executable(firmware_main
     "${CMAKE_CURRENT_LIST_DIR}/src/main.c"
-    "${CMAKE_CURRENT_LIST_DIR}/src/usb_task.c"
+    #"${CMAKE_CURRENT_LIST_DIR}/src/usb_task.c"
 )
 
 # Onde procurar arquivos .h

@@ -1,130 +1,93 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
+#include "hardware/spi.h"
 #include "FreeRTOS.h"
 #include "task.h"
-#include "usb_task.h"
 
-#define LED_PIN_GREEN 11 //Pino do LED RGB Verde no Bitdoglab
+// --- PINAGEM (BitDogLab SPI0) ---
+#define SPI_PORT spi0
+#define PIN_MISO 16
+#define PIN_CS   17
+#define PIN_SCK  18
+#define PIN_MOSI 19
 
-void vBlinkTask(void *pvParameters){
-    gpio_init(LED_PIN_GREEN);
-    gpio_set_dir(LED_PIN_GREEN, GPIO_OUT);
+// LED Verde da BitDogLab para sabermos que o RP2040 não travou
+#define LED_PIN_GREEN 11 
 
-    for(;;){
-        gpio_put(LED_PIN_GREEN,1);
-        vTaskDelay(pdMS_TO_TICKS(100)); //pisca rapido 100 ms
-        gpio_put(LED_PIN_GREEN,0);
-        vTaskDelay(pdMS_TO_TICKS(900)); //espera ~1s
+// --- Função: Configura o Hardware SPI ---
+void hardware_spi_init() {
+    // Inicializa SPI a 500kHz (Lento e seguro para fios soltos)
+    spi_init(SPI_PORT, 500 * 1000);
+    
+    gpio_set_function(PIN_MISO, GPIO_FUNC_SPI);
+    gpio_set_function(PIN_SCK,  GPIO_FUNC_SPI);
+    gpio_set_function(PIN_MOSI, GPIO_FUNC_SPI);
+
+    // Controle manual do Chip Select (CS)
+    gpio_init(PIN_CS);
+    gpio_set_dir(PIN_CS, GPIO_OUT);
+    gpio_put(PIN_CS, 1); // 1 = Desabilitado (FPGA ignora)
+}
+
+// --- Função: Envia 1 byte para a FPGA ---
+void send_fpga_command(uint8_t cmd) {
+    gpio_put(PIN_CS, 0); // 0 = Baixa o CS (Ei FPGA, escuta aqui!)
+    sleep_us(10);        // Dá um tempinho para a FPGA perceber
+    
+    spi_write_blocking(SPI_PORT, &cmd, 1); // Envia o dado
+    
+    sleep_us(10);
+    gpio_put(PIN_CS, 1); // 1 = Sobe o CS (Acabou, executa aí!)
+}
+
+// --- TAREFA 1: O Maestro da FPGA ---
+void vFpgaTestTask(void *pvParameters) {
+    hardware_spi_init(); // Configura os pinos uma vez
+    printf("--- Iniciando Comunicacao SPI com FPGA ---\n");
+
+    for(;;) {
+        // Passo 1: Manda LIGAR (A1)
+        // A FPGA deve acender o LED Verde
+        printf(">> RP2040 diz: LIGAR (0xA1)\n");
+        send_fpga_command(0xA1);
+        vTaskDelay(pdMS_TO_TICKS(1000)); // Espera 1 segundo
+
+        // Passo 2: Manda DESLIGAR (B0)
+        // A FPGA deve apagar o LED Verde
+        printf(">> RP2040 diz: DESLIGAR (0xB0)\n");
+        send_fpga_command(0xB0);
+        vTaskDelay(pdMS_TO_TICKS(1000)); // Espera 1 segundo
     }
 }
 
-int main(){
-    //1. Iniciar USB e serial
-    stdio_init_all(); //inicializa
+// --- TAREFA 2: O Coração da RP2040 ---
+// Só pisca o LED da placa para mostrar que o FreeRTOS está rodando
+void vBlinkLocalTask(void *pvParameters) {
+    gpio_init(LED_PIN_GREEN);
+    gpio_set_dir(LED_PIN_GREEN, GPIO_OUT);
 
-    //adionar uma pequena pausa e printa
-    sleep_ms(2000);
-    printf("--- INICIANDO SISTEMA FREERTOS ---\n");
-    printf("--- Aguardando dados na USB... ---\n");
-
-    //2. Criar as tarefas
-    //LED
-    xTaskCreate(vBlinkTask,"Blink", 128, NULL, 1, NULL);    
-
-    //USB
-    xTaskCreate(vUsbTask, "USB_talk", 256, NULL, 1, NULL);
-
-    //3. Iniciar o scheduler - FreeRTOS assume o controle com as tarefas
-    vTaskStartScheduler();
-
-    //4. Erro de memoria (FreeRTOS) caso a execução chegue aqui
-    while (1);    
+    for(;;) {
+        gpio_put(LED_PIN_GREEN, 1);
+        vTaskDelay(pdMS_TO_TICKS(100)); // Pisca rápido
+        gpio_put(LED_PIN_GREEN, 0);
+        vTaskDelay(pdMS_TO_TICKS(900));
+    }
 }
 
+// --- MAIN ---
+int main() {
+    stdio_init_all();
+    sleep_ms(2000); // Espera você abrir o monitor serial
 
-// #include "hardware/spi.h"
-// #include "hardware/i2c.h"
-// #include "hardware/dma.h"
+    printf("--- SISTEMA INTEGRADO ---\n");
 
-// // SPI Defines
-// // We are going to use SPI 0, and allocate it to the following GPIO pins
-// // Pins can be changed, see the GPIO function select table in the datasheet for information on GPIO assignments
-// #define SPI_PORT spi0
-// #define PIN_MISO 16
-// #define PIN_CS   17
-// #define PIN_SCK  18
-// #define PIN_MOSI 19
+    // Cria as tarefas do FreeRTOS
+    xTaskCreate(vBlinkLocalTask, "LocalBlink", 128, NULL, 1, NULL);
+    xTaskCreate(vFpgaTestTask,   "FpgaSPI",    256, NULL, 2, NULL);
 
-// // I2C defines
-// // This example will use I2C0 on GPIO8 (SDA) and GPIO9 (SCL) running at 400KHz.
-// // Pins can be changed, see the GPIO function select table in the datasheet for information on GPIO assignments
-// #define I2C_PORT i2c0
-// #define I2C_SDA 8
-// #define I2C_SCL 9
+    // Inicia o sistema operacional
+    vTaskStartScheduler();
 
-// // Data will be copied from src to dst
-// const char src[] = "Hello, world! (from DMA)";
-// char dst[count_of(src)];
-
-
-
-// int main()
-// {
-//     stdio_init_all();
-
-//     // SPI initialisation. This example will use SPI at 1MHz.
-//     spi_init(SPI_PORT, 1000*1000);
-//     gpio_set_function(PIN_MISO, GPIO_FUNC_SPI);
-//     gpio_set_function(PIN_CS,   GPIO_FUNC_SIO);
-//     gpio_set_function(PIN_SCK,  GPIO_FUNC_SPI);
-//     gpio_set_function(PIN_MOSI, GPIO_FUNC_SPI);
-    
-//     // Chip select is active-low, so we'll initialise it to a driven-high state
-//     gpio_set_dir(PIN_CS, GPIO_OUT);
-//     gpio_put(PIN_CS, 1);
-//     // For more examples of SPI use see https://github.com/raspberrypi/pico-examples/tree/master/spi
-
-//     // I2C Initialisation. Using it at 400Khz.
-//     i2c_init(I2C_PORT, 400*1000);
-    
-//     gpio_set_function(I2C_SDA, GPIO_FUNC_I2C);
-//     gpio_set_function(I2C_SCL, GPIO_FUNC_I2C);
-//     gpio_pull_up(I2C_SDA);
-//     gpio_pull_up(I2C_SCL);
-//     // For more examples of I2C use see https://github.com/raspberrypi/pico-examples/tree/master/i2c
-
-//     // Get a free channel, panic() if there are none
-//     int chan = dma_claim_unused_channel(true);
-    
-//     // 8 bit transfers. Both read and write address increment after each
-//     // transfer (each pointing to a location in src or dst respectively).
-//     // No DREQ is selected, so the DMA transfers as fast as it can.
-    
-//     dma_channel_config c = dma_channel_get_default_config(chan);
-//     channel_config_set_transfer_data_size(&c, DMA_SIZE_8);
-//     channel_config_set_read_increment(&c, true);
-//     channel_config_set_write_increment(&c, true);
-    
-//     dma_channel_configure(
-//         chan,          // Channel to be configured
-//         &c,            // The configuration we just created
-//         dst,           // The initial write address
-//         src,           // The initial read address
-//         count_of(src), // Number of transfers; in this case each is 1 byte.
-//         true           // Start immediately.
-//     );
-    
-//     // We could choose to go and do something else whilst the DMA is doing its
-//     // thing. In this case the processor has nothing else to do, so we just
-//     // wait for the DMA to finish.
-//     dma_channel_wait_for_finish_blocking(chan);
-    
-//     // The DMA has now copied our text from the transmit buffer (src) to the
-//     // receive buffer (dst), so we can print it out from there.
-//     puts(dst);
-
-//     while (true) {
-//         printf("Hello, world!\n");
-//         sleep_ms(1000);
-//     }
-// }
+    // O código nunca deve chegar aqui
+    while (1);
+}
