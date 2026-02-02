@@ -1,0 +1,62 @@
+module top (
+    input  logic clk_in,    // 25MHz
+    input  logic rst_n,     // Botão Reset (Active Low)
+    
+    // SPI Interface
+    input  logic spi_cs,
+    input  logic spi_sck,
+    input  logic spi_mosi,
+    output logic spi_miso,
+
+    // LED de Teste
+    output logic led
+);
+
+    // -- Sinais Internos --
+    logic rst;
+    assign rst = ~rst_n; // Inverte para usar reset positivo internamente
+
+    logic [7:0] shift_reg;
+    logic [2:0] bit_cnt;
+    logic       sck_old;
+    logic       led_state;
+
+    // -- Detector de Borda do Clock SPI --
+    always_ff @(posedge clk_in) begin
+        sck_old <= spi_sck;
+    end
+    wire sck_rising = (spi_sck && !sck_old); // Detecta subida do SCK
+
+    // -- Lógica do Escravo SPI (Simples) --
+    always_ff @(posedge clk_in or posedge rst) begin
+        if (rst) begin
+            bit_cnt   <= 0;
+            shift_reg <= 0;
+            led_state <= 1; // Começa apagado (L16 é Active Low)
+        end else begin
+            if (spi_cs) begin
+                // Se CS está alto (inativo), reseta o contador
+                bit_cnt <= 0;
+            end else if (sck_rising) begin
+                // Na borda de subida do Clock, lê o bit do MOSI
+                shift_reg <= {shift_reg[6:0], spi_mosi};
+                bit_cnt   <= bit_cnt + 1;
+
+                // Se completou 1 byte (8 bits)
+                if (bit_cnt == 7) begin
+                    // Decodifica o comando vindo do RP2040
+                    case ({shift_reg[6:0], spi_mosi})
+                        8'hA1: led_state <= 0; // LIGAR LED (0V no pino L16)
+                        8'hB0: led_state <= 1; // DESLIGAR LED (3.3V no pino L16)
+                        default: ;             // Outros comandos: não faz nada
+                    endcase
+                end
+            end
+        end
+    end
+
+    // -- Saídas --
+    assign led = led_state;
+    assign spi_miso = 1'bZ; // Alta impedância (não vamos responder nada por enquanto)
+
+endmodule
