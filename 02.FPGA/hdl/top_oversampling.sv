@@ -1,4 +1,4 @@
-module top (
+module top_oversampling (
     input  logic clk_in, spi_cs, spi_sck, spi_mosi, rst,
     output logic spi_miso,
     output logic [1:0] led
