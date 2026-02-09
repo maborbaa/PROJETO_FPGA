@@ -1,0 +1,29 @@
+module top (
+    input  logic clk_in,
+    input  logic rst,
+    input  logic spi_cs,
+    input  logic spi_sck,
+    input  logic spi_mosi,
+    output logic spi_miso,
+    output logic [3:0] row,
+    input  logic [3:0] col,
+    output logic [1:0] led
+);
+
+    // --- 1. Heartbeat (LED Vermelho) ---
+    logic [25:0] counter;
+    always_ff @(posedge clk_in) counter <= counter + 1;
+    assign led[0] = counter[24]; 
+
+    // --- 2. IP CORE: ESPELHO DE HARDWARE (Loopback) ---
+    // Tudo que entra no MOSI sai no MISO instantaneamente.
+    // Isso prova a integridade total do barramento.
+    assign spi_miso = spi_mosi;
+
+    // --- 3. Diagnóstico Visual ---
+    // LED Verde acende quando há tráfego (CS Ativo)
+    assign led[1] = !spi_cs; 
+    
+    assign row = 4'b0000; 
+
+endmodule

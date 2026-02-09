@@ -12,7 +12,7 @@ module tb_bootloader;
     logic spi_cs = 1;
 
     // Instância do SoC Completo
-    top u_top (
+    top_soc u_top (
         .clk_in   (clk),
         .rst_in   (rst_n),
         .led      (led),
@@ -29,7 +29,7 @@ module tb_bootloader;
 
     // Controle da Simulação
     initial begin
-        $dumpfile("soc_ondas.vcd");
+        $dumpfile("sim/ota/soc_ondas.vcd");
         $dumpvars(0, tb_bootloader);
 
         // Sequência de Reset
@@ -38,7 +38,12 @@ module tb_bootloader;
         rst_n = 1; // Solta o reset (O processador deve acordar aqui!)
 
         // Deixa rodar por um tempo suficiente para ver o boot
-        #5000; 
+       // #5000; 
+
+        // Aumente de #5000 para #500000 (ou mais)
+        // 500.000ns = 500us (tempo suficiente para o RISC-V dar o boot)
+       // #500000;
+        #1000000; // 1 milhão de ns = 1 milisegundo (tempo de sobra para o boot)
         
         $display("Simulação finalizada.");
         $finish;

@@ -29,33 +29,33 @@
 LOCATE COMP "clk_in" SITE "P3";
 IOBUF PORT "clk_in" IO_TYPE=LVCMOS33;
 
-# Botão (Reset) - PR20D -> Site K18 -- Botão Active High, Pull-Down ativado
+# Botão (Reset) - PR20D (branco) -> Site K18 -- Botão Active High, Pull-Down ativado
 LOCATE COMP "rst" SITE "K18";
 IOBUF PORT "rst" IO_TYPE=LVCMOS33 PULLMODE=DOWN;
 
 #LEDs (Active Low: 0=Aceso, 1=Apagado)
-# LED 1 (Vermelho) - PL38C -> Site N4
+# LED 1 (Vermelho) - PL38C (azul) -> Site N4
 LOCATE COMP "led[0]" SITE "N4";
 IOBUF PORT "led[0]" IO_TYPE=LVCMOS33;
 
-# LED 2 (Verde) - PR35B -> Site P16
+# LED 2 (Verde) - PR35B (marrom) -> Site P16
 LOCATE COMP "led[1]" SITE "P16";
 IOBUF PORT "led[1]" IO_TYPE=LVCMOS33;
 
 # --- Interface SPI (Mapeamento) ---
-# CS (PR5D -> F18)
+# CS (PR5D (branco) -> F18) ==> GP17 (vermelho)
 LOCATE COMP "spi_cs" SITE "F18";
 IOBUF PORT "spi_cs" IO_TYPE=LVCMOS33;
 
-# SCK (PR8D -> H16)
+# SCK (PR8D (verde) -> H16) ==> GP18 (laranja)
 LOCATE COMP "spi_sck" SITE "H16";
 IOBUF PORT "spi_sck" IO_TYPE=LVCMOS33;
 
-# MOSI (PR11B -> H17)
+# MOSI (PR11B (amarelo) -> H17) ==> GP19 (preto)
 LOCATE COMP "spi_mosi" SITE "H17";
 IOBUF PORT "spi_mosi" IO_TYPE=LVCMOS33;
 
-# MISO (PR8B -> G18)
+# MISO (PR8B (azul) -> G18) ==> GP16 (marrom)
 LOCATE COMP "spi_miso" SITE "G18";
 IOBUF PORT "spi_miso" IO_TYPE=LVCMOS33;
 
@@ -65,6 +65,7 @@ LOCATE COMP "row[0]" SITE "D1";  # R1 (Cinza)
 LOCATE COMP "row[1]" SITE "C2";  # R2 (Branco)
 LOCATE COMP "row[2]" SITE "B4";  # R3 (Preto)
 LOCATE COMP "row[3]" SITE "D3";  # R4 (Marrom)
+
 IOBUF PORT "row[0]" IO_TYPE=LVCMOS33;
 IOBUF PORT "row[1]" IO_TYPE=LVCMOS33;
 IOBUF PORT "row[2]" IO_TYPE=LVCMOS33;
@@ -75,7 +76,13 @@ LOCATE COMP "col[0]" SITE "C17"; # C1 (Vermelho)
 LOCATE COMP "col[1]" SITE "B18"; # C2 (Laranja)
 LOCATE COMP "col[2]" SITE "B20"; # C3 (Amarelo)
 LOCATE COMP "col[3]" SITE "F20"; # C4 (Verde)
-IOBUF PORT "col[0]" IO_TYPE=LVCMOS33 PULLMODE=DOWN;
-IOBUF PORT "col[1]" IO_TYPE=LVCMOS33 PULLMODE=DOWN;
-IOBUF PORT "col[2]" IO_TYPE=LVCMOS33 PULLMODE=DOWN;
-IOBUF PORT "col[3]" IO_TYPE=LVCMOS33 PULLMODE=DOWN;
+
+#IOBUF PORT "col[0]" IO_TYPE=LVCMOS33 PULLMODE=DOWN;
+#IOBUF PORT "col[1]" IO_TYPE=LVCMOS33 PULLMODE=DOWN;
+#IOBUF PORT "col[2]" IO_TYPE=LVCMOS33 PULLMODE=DOWN;
+#IOBUF PORT "col[3]" IO_TYPE=LVCMOS33 PULLMODE=DOWN;
+
+IOBUF PORT "col[0]" IO_TYPE=LVCMOS33 PULLMODE=UP;
+IOBUF PORT "col[1]" IO_TYPE=LVCMOS33 PULLMODE=UP;
+IOBUF PORT "col[2]" IO_TYPE=LVCMOS33 PULLMODE=UP;
+IOBUF PORT "col[3]" IO_TYPE=LVCMOS33 PULLMODE=UP;
