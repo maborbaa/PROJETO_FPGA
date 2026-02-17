@@ -1,4 +1,4 @@
-module top_servo_pwm_test (
+module top_servo_pwm (
     input  wire clk,          // 25 MHz (P3)
     output reg  servo_pin,     // L4
     output reg  led_verde,     // N4
