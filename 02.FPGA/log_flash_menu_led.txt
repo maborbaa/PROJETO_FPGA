@@ -1,0 +1,9 @@
+empty
+write to flash
+Cable VID overridden
+Cable PID overridden
+Found 1 compatible device:
+	0x0d28 0x0204 0x3 DAPLink CMSIS-DAP
+Open file FAIL
+Error: fail to open hdl/ota/menu.bit
+Error: Failed to program FPGA: std::exception
