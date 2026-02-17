@@ -13,3 +13,20 @@ IOBUF PORT "led_verde" IO_TYPE=LVCMOS33;
 
 LOCATE COMP "led_verm" SITE "P16";
 IOBUF PORT "led_verm" IO_TYPE=LVCMOS33;
+
+# --- Interface SPI (Mapeamento) ---
+# CS (PR5D (branco) -> F18) ==> GP17 (vermelho)
+LOCATE COMP "spi_cs" SITE "F18";
+IOBUF PORT "spi_cs" IO_TYPE=LVCMOS33;
+
+# SCK (PR8D (verde) -> H16) ==> GP18 (laranja)
+LOCATE COMP "spi_sck" SITE "H16";
+IOBUF PORT "spi_sck" IO_TYPE=LVCMOS33;
+
+# MOSI (PR11B (amarelo) -> H17) ==> GP19 (preto)
+LOCATE COMP "spi_mosi" SITE "H17";
+IOBUF PORT "spi_mosi" IO_TYPE=LVCMOS33;
+
+# MISO (PR8B (azul) -> G18) ==> GP16 (marrom)
+LOCATE COMP "spi_miso" SITE "G18";
+IOBUF PORT "spi_miso" IO_TYPE=LVCMOS33;

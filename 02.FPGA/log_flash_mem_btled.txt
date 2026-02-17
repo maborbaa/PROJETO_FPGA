@@ -1,0 +1,14 @@
+empty
+write to flash
+Cable VID overridden
+Cable PID overridden
+Found 1 compatible device:
+	0x0d28 0x0204 0x3 DAPLink CMSIS-DAP
+Enable configuration: DONE
+SRAM erase: DONE
+Detail: 
+Jedec ID          : c8
+memory type       : 40
+memory capacity   : 17
+unprotect_flash: Done
+Refresh: DONE
