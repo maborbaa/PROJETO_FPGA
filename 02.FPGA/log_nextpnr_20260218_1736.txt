@@ -1,0 +1,2 @@
+ERROR: IO 'rst_btn' is unconstrained in LPF (override this error with --lpf-allow-unconstrained)
+0 warnings, 1 error
