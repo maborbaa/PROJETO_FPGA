@@ -1,0 +1,310 @@
+
+
+Info: Logic utilisation before packing:
+Info:     Total LUT4s:       339/43848     0%
+Info:         logic LUTs:    141/43848     0%
+Info:         carry LUTs:    198/43848     0%
+Info:           RAM LUTs:      0/ 5481     0%
+Info:          RAMW LUTs:      0/10962     0%
+
+Info:      Total DFFs:       119/43848     0%
+
+Info: Packing IOs..
+Info: pin 'spi_sck$tr_io' constrained to Bel 'X90/Y17/PIOD'.
+Info: pin 'spi_mosi$tr_io' constrained to Bel 'X90/Y20/PIOB'.
+Info: pin 'spi_miso$tr_io' constrained to Bel 'X90/Y17/PIOB'.
+Info: pin 'spi_cs$tr_io' constrained to Bel 'X90/Y14/PIOD'.
+Info: pin 'servo_pin$tr_io' constrained to Bel 'X0/Y44/PIOC'.
+Info: pin 'rst$tr_io' constrained to Bel 'X13/Y71/PIOA'.
+Info: pin 'led_verm$tr_io' constrained to Bel 'X90/Y44/PIOB'.
+Info: pin 'led_verde$tr_io' constrained to Bel 'X0/Y59/PIOC'.
+Info: pin 'clk$tr_io' constrained to Bel 'X0/Y68/PIOC'.
+Info: Packing constants..
+Info: Packing carries...
+Info: Packing LUTs...
+Info: Packing LUT5-7s...
+Info: Packing FFs...
+Info:     70 FFs paired with LUTs.
+Info: Generating derived timing constraints...
+Info: Promoting globals...
+Info:     promoting clock net clk$TRELLIS_IO_IN to global network
+Info: Checksum: 0xb96bc221
+
+Info: Device utilisation:
+Info: 	          TRELLIS_IO:     9/  245     3%
+Info: 	                DCCA:     1/   56     1%
+Info: 	              DP16KD:     0/  108     0%
+Info: 	          MULT18X18D:     0/   72     0%
+Info: 	              ALU54B:     0/   36     0%
+Info: 	             EHXPLLL:     0/    4     0%
+Info: 	             EXTREFB:     0/    2     0%
+Info: 	                DCUA:     0/    2     0%
+Info: 	           PCSCLKDIV:     0/    2     0%
+Info: 	             IOLOGIC:     0/  160     0%
+Info: 	            SIOLOGIC:     0/   85     0%
+Info: 	                 GSR:     0/    1     0%
+Info: 	               JTAGG:     0/    1     0%
+Info: 	                OSCG:     0/    1     0%
+Info: 	               SEDGA:     0/    1     0%
+Info: 	                 DTR:     0/    1     0%
+Info: 	             USRMCLK:     0/    1     0%
+Info: 	             CLKDIVF:     0/    4     0%
+Info: 	           ECLKSYNCB:     0/   10     0%
+Info: 	             DLLDELD:     0/    8     0%
+Info: 	              DDRDLL:     0/    4     0%
+Info: 	             DQSBUFM:     0/   10     0%
+Info: 	     TRELLIS_ECLKBUF:     0/    8     0%
+Info: 	        ECLKBRIDGECS:     0/    2     0%
+Info: 	                DCSC:     0/    2     0%
+Info: 	          TRELLIS_FF:   119/43848     0%
+Info: 	        TRELLIS_COMB:   381/43848     0%
+Info: 	        TRELLIS_RAMW:     0/ 5481     0%
+
+Info: Placed 9 cells based on constraints.
+Info: Creating initial analytic placement for 163 cells, random placement wirelen = 18586.
+Info:     at initial placer iter 0, wirelen = 718
+Info:     at initial placer iter 1, wirelen = 666
+Info:     at initial placer iter 2, wirelen = 641
+Info:     at initial placer iter 3, wirelen = 651
+Info: Running main analytical placer, max placement attempts per cell = 32512.
+Info:     at iteration #1, type ALL: wirelen solved = 638, spread = 1418, legal = 1588; time = 0.01s
+Info:     at iteration #2, type ALL: wirelen solved = 737, spread = 1400, legal = 1587; time = 0.01s
+Info:     at iteration #3, type ALL: wirelen solved = 677, spread = 1439, legal = 1588; time = 0.01s
+Info:     at iteration #4, type ALL: wirelen solved = 729, spread = 1383, legal = 1486; time = 0.01s
+Info:     at iteration #5, type ALL: wirelen solved = 697, spread = 1425, legal = 1580; time = 0.01s
+Info:     at iteration #6, type ALL: wirelen solved = 767, spread = 1291, legal = 1456; time = 0.01s
+Info:     at iteration #7, type ALL: wirelen solved = 761, spread = 1335, legal = 1481; time = 0.01s
+Info:     at iteration #8, type ALL: wirelen solved = 758, spread = 1210, legal = 1371; time = 0.01s
+Info:     at iteration #9, type ALL: wirelen solved = 763, spread = 1307, legal = 1431; time = 0.01s
+Info:     at iteration #10, type ALL: wirelen solved = 767, spread = 1313, legal = 1432; time = 0.01s
+Info:     at iteration #11, type ALL: wirelen solved = 767, spread = 1232, legal = 1395; time = 0.01s
+Info:     at iteration #12, type ALL: wirelen solved = 755, spread = 1258, legal = 1384; time = 0.01s
+Info:     at iteration #13, type ALL: wirelen solved = 775, spread = 1311, legal = 1401; time = 0.01s
+Info: HeAP Placer Time: 0.14s
+Info:   of which solving equations: 0.07s
+Info:   of which spreading cells: 0.01s
+Info:   of which strict legalisation: 0.01s
+
+Info: Running simulated annealing placer for refinement.
+Info:   at iteration #1: temp = 0.000000, timing cost = 214, wirelen = 1371
+Info:   at iteration #5: temp = 0.000000, timing cost = 38, wirelen = 1220
+Info:   at iteration #7: temp = 0.000000, timing cost = 29, wirelen = 1200 
+Info: SA placement time 0.09s
+
+Info: Max frequency for clock '$glbnet$clk$TRELLIS_IO_IN': 109.02 MHz (PASS at 12.00 MHz)
+
+Info: Max delay <async>                           -> <async>                          : 25.24 ns
+Info: Max delay <async>                           -> posedge $glbnet$clk$TRELLIS_IO_IN: 3.00 ns
+Info: Max delay posedge $glbnet$clk$TRELLIS_IO_IN -> <async>                          : 17.25 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 1 endpoint(s)
+Info:          + represents [1,1) endpoint(s)
+Info: [ 74160,  74581) |* 
+Info: [ 74581,  75002) |* 
+Info: [ 75002,  75423) | 
+Info: [ 75423,  75844) | 
+Info: [ 75844,  76265) |******* 
+Info: [ 76265,  76686) |****************************** 
+Info: [ 76686,  77107) |********************* 
+Info: [ 77107,  77528) |*** 
+Info: [ 77528,  77949) |******** 
+Info: [ 77949,  78370) |************************ 
+Info: [ 78370,  78791) |******************************** 
+Info: [ 78791,  79212) |***************** 
+Info: [ 79212,  79633) |*********** 
+Info: [ 79633,  80054) |*********** 
+Info: [ 80054,  80475) |******** 
+Info: [ 80475,  80896) |* 
+Info: [ 80896,  81317) |****** 
+Info: [ 81317,  81738) |**************************** 
+Info: [ 81738,  82159) |********************* 
+Info: [ 82159,  82580) |**************** 
+Info: Checksum: 0xffd67310
+Info: Routing globals...
+Info:     routing clock net $glbnet$clk$TRELLIS_IO_IN using global 0
+
+Info: Routing..
+Info: Setting up routing queue.
+Info: Routing 1084 arcs.
+Info:            |   (re-)routed arcs  |   delta    | remaining|       time spent     |
+Info:    IterCnt |  w/ripup   wo/ripup |  w/r  wo/r |      arcs| batch(sec) total(sec)|
+Info:       1000 |      276        633 |  276   633 |       380|       0.08       0.08|
+Info:       1429 |      322        950 |   46   317 |         0|       0.04       0.12|
+Info: Routing complete.
+Info: Router1 time 0.12s
+Info: Checksum: 0x6283cdba
+
+Info: Critical path report for clock '$glbnet$clk$TRELLIS_IO_IN' (posedge -> posedge):
+Info: curr total
+Info:  0.5  0.5  Source pwm_duty_TRELLIS_FF_Q_15.Q
+Info:  1.6  2.1    Net pwm_duty[3] (9,35) -> (12,39)
+Info:                Sink dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_6$CCU2_COMB0.B
+Info:                Defined in:
+Info:                  hdl/ota/system_complete.sv:92.16-92.24
+Info:  0.4  2.5  Source dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_6$CCU2_COMB0.FCO
+Info:  0.0  2.5    Net dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_6$CCU2_FCI_INT (12,39) -> (12,39)
+Info:                Sink dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_6$CCU2_COMB1.FCI
+Info:  0.0  2.5  Source dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_6$CCU2_COMB1.FCO
+Info:  0.0  2.5    Net dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D[1] (12,39) -> (12,39)
+Info:                Sink dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_3$CCU2_COMB0.FCI
+Info:                Defined in:
+Info:                  hdl/ota/system_complete.sv:119.25-119.42
+Info:                  /usr/bin/../share/yosys/ecp5/arith_map.v:63.22-63.23
+Info:  0.1  2.6  Source dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_3$CCU2_COMB0.FCO
+Info:  0.0  2.6    Net dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_3$CCU2_FCI_INT (12,39) -> (12,39)
+Info:                Sink dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_3$CCU2_COMB1.FCI
+Info:  0.0  2.6  Source dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_3$CCU2_COMB1.FCO
+Info:  0.0  2.6    Net dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D[3] (12,39) -> (12,39)
+Info:                Sink dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_2$CCU2_COMB0.FCI
+Info:                Defined in:
+Info:                  hdl/ota/system_complete.sv:119.25-119.42
+Info:                  /usr/bin/../share/yosys/ecp5/arith_map.v:63.22-63.23
+Info:  0.1  2.7  Source dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_2$CCU2_COMB0.FCO
+Info:  0.0  2.7    Net dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_2$CCU2_FCI_INT (12,39) -> (12,39)
+Info:                Sink dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_2$CCU2_COMB1.FCI
+Info:  0.0  2.7  Source dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_2$CCU2_COMB1.FCO
+Info:  0.0  2.7    Net dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D[5] (12,39) -> (13,39)
+Info:                Sink dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_1$CCU2_COMB0.FCI
+Info:                Defined in:
+Info:                  hdl/ota/system_complete.sv:119.25-119.42
+Info:                  /usr/bin/../share/yosys/ecp5/arith_map.v:63.22-63.23
+Info:  0.1  2.7  Source dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_1$CCU2_COMB0.FCO
+Info:  0.0  2.7    Net dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_1$CCU2_FCI_INT (13,39) -> (13,39)
+Info:                Sink dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_1$CCU2_COMB1.FCI
+Info:  0.0  2.7  Source dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_1$CCU2_COMB1.FCO
+Info:  0.0  2.7    Net dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D[7] (13,39) -> (13,39)
+Info:                Sink dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0$CCU2_COMB0.FCI
+Info:                Defined in:
+Info:                  hdl/ota/system_complete.sv:119.25-119.42
+Info:                  /usr/bin/../share/yosys/ecp5/arith_map.v:63.22-63.23
+Info:  0.1  2.8  Source dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0$CCU2_COMB0.FCO
+Info:  0.0  2.8    Net dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0$CCU2_FCI_INT (13,39) -> (13,39)
+Info:                Sink dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0$CCU2_COMB1.FCI
+Info:  0.0  2.8  Source dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0$CCU2_COMB1.FCO
+Info:  0.0  2.8    Net dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D[9] (13,39) -> (13,39)
+Info:                Sink dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_5$CCU2_COMB0.FCI
+Info:                Defined in:
+Info:                  hdl/ota/system_complete.sv:119.25-119.42
+Info:                  /usr/bin/../share/yosys/ecp5/arith_map.v:63.22-63.23
+Info:  0.1  2.9  Source dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_5$CCU2_COMB0.FCO
+Info:  0.0  2.9    Net dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_5$CCU2_FCI_INT (13,39) -> (13,39)
+Info:                Sink dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_5$CCU2_COMB1.FCI
+Info:  0.0  2.9  Source dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_5$CCU2_COMB1.FCO
+Info:  0.0  2.9    Net dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D[11] (13,39) -> (13,39)
+Info:                Sink dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_4$CCU2_COMB0.FCI
+Info:                Defined in:
+Info:                  hdl/ota/system_complete.sv:119.25-119.42
+Info:                  /usr/bin/../share/yosys/ecp5/arith_map.v:63.22-63.23
+Info:  0.1  3.0  Source dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_4$CCU2_COMB0.FCO
+Info:  0.0  3.0    Net dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_4$CCU2_FCI_INT (13,39) -> (13,39)
+Info:                Sink dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_4$CCU2_COMB1.FCI
+Info:  0.0  3.0  Source dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT_S0_CCU2C_S0_4$CCU2_COMB1.FCO
+Info:  0.0  3.0    Net dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D[13] (13,39) -> (14,39)
+Info:                Sink dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT$CCU2_COMB0.FCI
+Info:                Defined in:
+Info:                  hdl/ota/system_complete.sv:119.25-119.42
+Info:                  /usr/bin/../share/yosys/ecp5/arith_map.v:63.22-63.23
+Info:  0.1  3.0  Source dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT$CCU2_COMB0.FCO
+Info:  0.0  3.0    Net dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT$CCU2_FCI_INT (14,39) -> (14,39)
+Info:                Sink dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT$CCU2_COMB1.FCI
+Info:  0.0  3.0  Source dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D_CCU2C_COUT$CCU2_COMB1.FCO
+Info:  0.0  3.0    Net $nextpnr_CCU2C_13$CIN (14,39) -> (14,39)
+Info:                Sink $nextpnr_CCU2C_13$CCU2_COMB0.FCI
+Info:  0.4  3.5  Source $nextpnr_CCU2C_13$CCU2_COMB0.F
+Info:  0.5  3.9    Net dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z_D[15] (14,39) -> (15,39)
+Info:                Sink dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z.D
+Info:                Defined in:
+Info:                  hdl/ota/system_complete.sv:119.25-119.42
+Info:                  /usr/bin/../share/yosys/ecp5/arith_map.v:38.23-38.25
+Info:  0.2  4.2  Source dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0_LUT4_Z.F
+Info:  0.5  4.6    Net dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_C0[4] (15,39) -> (16,39)
+Info:                Sink dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_BLUT_LUT4_Z.M
+Info:                Defined in:
+Info:                  /usr/bin/../share/yosys/ecp5/cells_map.v:108.23-108.24
+Info:  0.3  4.9  Source dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:  0.7  5.6    Net dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_C0[4] (16,39) -> (16,38)
+Info:                Sink dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_BLUT_LUT4_Z.M
+Info:                Defined in:
+Info:                  /usr/bin/../share/yosys/ecp5/cells_map.v:108.23-108.24
+Info:  0.3  5.8  Source dir_up_TRELLIS_FF_Q_DI_PFUMX_Z_BLUT_LUT4_Z.OFX
+Info:  0.6  6.4    Net dir_up_TRELLIS_FF_Q_DI (16,38) -> (16,39)
+Info:                Sink dir_up_TRELLIS_FF_Q.M
+Info:  0.0  6.4  Setup dir_up_TRELLIS_FF_Q.M
+Info: 2.7 ns logic, 3.8 ns routing
+
+Info: Critical path report for cross-domain path '<async>' -> '<async>':
+Info: curr total
+Info:  0.0  0.0  Source rst$tr_io.O
+Info:  5.7  5.7    Net rst$TRELLIS_IO_IN (13,71) -> (75,43)
+Info:                Sink rst_LUT4_B.B
+Info:                Defined in:
+Info:                  hdl/ota/system_complete.sv:3.17-3.20
+Info:  0.4  6.1  Source rst_LUT4_B.OFX
+Info:  5.2 11.2    Net led_verde$TRELLIS_IO_OUT (75,43) -> (0,59)
+Info:                Sink led_verde$tr_io.I
+Info:                Defined in:
+Info:                  hdl/ota/system_complete.sv:8.17-8.26
+Info: 0.4 ns logic, 10.8 ns routing
+
+Info: Critical path report for cross-domain path '<async>' -> 'posedge $glbnet$clk$TRELLIS_IO_IN':
+Info: curr total
+Info:  0.0  0.0  Source spi_cs$tr_io.O
+Info:  1.3  1.3    Net spi_cs$TRELLIS_IO_IN (90,14) -> (83,19)
+Info:                Sink u_spi.cs_r_TRELLIS_FF_Q_2.M
+Info:                Defined in:
+Info:                  hdl/ota/system_complete.sv:27.15-30.6
+Info:                  hdl/ota/spi_slave.sv:5.17-5.19
+Info:  0.0  1.3  Setup u_spi.cs_r_TRELLIS_FF_Q_2.M
+Info: 0.0 ns logic, 1.3 ns routing
+
+Info: Critical path report for cross-domain path 'posedge $glbnet$clk$TRELLIS_IO_IN' -> '<async>':
+Info: curr total
+Info:  0.5  0.5  Source modo_led_TRELLIS_FF_Q.Q
+Info:  1.9  2.5    Net modo_led[1] (76,24) -> (75,43)
+Info:                Sink led_g_app1_LUT4_C.D
+Info:                Defined in:
+Info:                  hdl/ota/system_complete.sv:24.15-24.23
+Info:  0.2  2.7  Source led_g_app1_LUT4_C.F
+Info:  0.0  2.7    Net led_verde_PFUMX_Z_ALUT (75,43) -> (75,43)
+Info:                Sink rst_LUT4_B.F1
+Info:                Defined in:
+Info:                  /usr/bin/../share/yosys/ecp5/cells_map.v:133.22-133.24
+Info:  0.2  2.9  Source rst_LUT4_B.OFX
+Info:  5.2  8.0    Net led_verde$TRELLIS_IO_OUT (75,43) -> (0,59)
+Info:                Sink led_verde$tr_io.I
+Info:                Defined in:
+Info:                  hdl/ota/system_complete.sv:8.17-8.26
+Info: 0.9 ns logic, 7.1 ns routing
+
+Info: Max frequency for clock '$glbnet$clk$TRELLIS_IO_IN': 155.40 MHz (PASS at 12.00 MHz)
+
+Info: Max delay <async>                           -> <async>                          : 11.23 ns
+Info: Max delay <async>                           -> posedge $glbnet$clk$TRELLIS_IO_IN: 1.32 ns
+Info: Max delay posedge $glbnet$clk$TRELLIS_IO_IN -> <async>                          : 8.02 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 1 endpoint(s)
+Info:          + represents [1,1) endpoint(s)
+Info: [ 76898,  77173) |****** 
+Info: [ 77173,  77448) |****************** 
+Info: [ 77448,  77723) |*************** 
+Info: [ 77723,  77998) |***** 
+Info: [ 77998,  78273) |*** 
+Info: [ 78273,  78548) |*** 
+Info: [ 78548,  78823) |***************************** 
+Info: [ 78823,  79098) |************ 
+Info: [ 79098,  79373) |************** 
+Info: [ 79373,  79648) |*************** 
+Info: [ 79648,  79923) |*********** 
+Info: [ 79923,  80198) |*********** 
+Info: [ 80198,  80473) |****************** 
+Info: [ 80473,  80748) |*********************** 
+Info: [ 80748,  81023) |************************** 
+Info: [ 81023,  81298) |****** 
+Info: [ 81298,  81573) |***** 
+Info: [ 81573,  81848) |******** 
+Info: [ 81848,  82123) |****** 
+Info: [ 82123,  82398) |************ 
+
+Info: Program finished normally.

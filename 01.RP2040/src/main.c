@@ -1,77 +1,71 @@
+/*
+* Apertar o botão A e muda o Menu OTA da FPGA com SPI
+*/
+
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/spi.h"
 
-// --- MAPEAMENTO DE PINOS (BitDogLab / Raspberry Pi Pico) ---
 #define SPI_PORT    spi0
-#define PIN_MISO    16   // (Não usado neste exemplo, mas configurado)
-#define PIN_CS      17   // Chip Select
-#define PIN_SCK     18   // Clock
-#define PIN_MOSI    19   // Dados (Sai do RP2040 -> Vai pra FPGA)
+#define PIN_SCK     18
+#define PIN_MOSI    19
+#define PIN_CS      17
+#define BUTTON_A    5  // Controla os LEDs
+#define BUTTON_B    6  // Controla o Servo
 
-#define BUTTON_A    5    // Botão A da BitDogLab
-
-// Velocidade do SPI: 1 MHz (suficiente para FPGA detectar sem erros)
-#define SPI_BAUDRATE 1000 * 1000 
+void send_spi_cmd(uint8_t cmd) {
+    gpio_put(PIN_CS, 0);
+    sleep_us(10);
+    spi_write_blocking(SPI_PORT, &cmd, 1);
+    sleep_us(10);
+    gpio_put(PIN_CS, 1);
+    printf("Comando SPI enviado: 0x%02X\n", cmd);
+}
 
 int main() {
-    // 1. Inicialização Padrão
     stdio_init_all();
-    sleep_ms(2000); // Tempo para abrir o terminal serial se precisar
-    printf("Iniciando Sistema de Controle FPGA via SPI...\n");
-
-    // 2. Inicialização do SPI
-    spi_init(SPI_PORT, SPI_BAUDRATE);
     
-    // Configura os pinos para função SPI (SCK e MOSI)
-    // Nota: CS faremos controle manual via GPIO para garantir o timing
+    // SPI Init
+    spi_init(SPI_PORT, 1000 * 1000);
     gpio_set_function(PIN_SCK, GPIO_FUNC_SPI);
     gpio_set_function(PIN_MOSI, GPIO_FUNC_SPI);
-    
-    // Configura o pino MISO (opcional, pois não estamos lendo volta da FPGA agora)
-    gpio_set_function(PIN_MISO, GPIO_FUNC_SPI);
+    gpio_init(PIN_CS); 
+    gpio_set_dir(PIN_CS, GPIO_OUT); 
+    gpio_put(PIN_CS, 1);
 
-    // 3. Configuração do Chip Select (CS) Manual
-    gpio_init(PIN_CS);
-    gpio_set_dir(PIN_CS, GPIO_OUT);
-    gpio_put(PIN_CS, 1); // CS começa em ALTO (Desativado)
+    // Button Init
+    gpio_init(BUTTON_A); gpio_set_dir(BUTTON_A, GPIO_IN); gpio_pull_up(BUTTON_A);
+    gpio_init(BUTTON_B); gpio_set_dir(BUTTON_B, GPIO_IN); gpio_pull_up(BUTTON_B);
 
-    // 4. Configuração do Botão A
-    gpio_init(BUTTON_A);
-    gpio_set_dir(BUTTON_A, GPIO_IN);
-    gpio_pull_up(BUTTON_A); // Botão pressionado vai para 0 (GND)
+    int modo = 0; // 0=Menu, 1=LED, 2=Botão
+    int modo_servo = 0; // 0=Parado (Centro), 1=Varredura (Movendo)
 
-    // Loop Principal
     while (true) {
-        // Verifica se o botão foi pressionado (Nível Baixo)
+        //controle botao A
         if (!gpio_get(BUTTON_A)) {
-            printf("Botão A pressionado. Enviando comando 0xA1...\n");
+            // Ciclo: 0 -> 1 -> 2 -> 0 ...
+            modo++;
+            if (modo > 2) modo = 0;
 
-            // --- PROTOCOLO DE ENVIO ---
-            
-            // 1. Baixa o CS para acordar a FPGA
-            gpio_put(PIN_CS, 0);
-            sleep_us(10); // Pequeno delay de estabilização
+            if (modo == 0) send_spi_cmd(0x00); // Volta pro Menu
+            if (modo == 1) send_spi_cmd(0xA1); // Ativa LED Auto
+            if (modo == 2) send_spi_cmd(0xB2); // Ativa LED Botão
 
-            // 2. Envia o byte de comando (0xA1)
-            uint8_t comando = 0xA1;
-            spi_write_blocking(SPI_PORT, &comando, 1);
+            sleep_ms(300); // Debounce
+        }
+         // --- CONTROLE DO SERVO (BOTÃO B) ---
+        if (!gpio_get(BUTTON_B)) {
+            modo_servo++;
+            if (modo_servo > 1) modo_servo = 0;
 
-            // 3. Sobe o CS para encerrar a transação
-            sleep_us(10);
-            gpio_put(PIN_CS, 1);
+            if (modo_servo == 0) send_spi_cmd(0xC3); // Comando Servo Parado
+            if (modo_servo == 1) send_spi_cmd(0xD4); // Comando Servo Movendo
 
-            printf("Comando enviado!\n");
-
-            // Debounce simples (espera o botão ser solto ou um tempo)
-            sleep_ms(250); 
-            while(!gpio_get(BUTTON_A)) {
-                sleep_ms(10); // Espera soltar o botão
-            }
+            sleep_ms(300); // Debounce
         }
 
-        sleep_ms(10); // Delay do loop
-    }
-
+        sleep_ms(10);
+    }   
+        
     return 0;
 }
